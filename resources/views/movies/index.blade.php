@@ -50,6 +50,39 @@
                         @endforeach
                       </table>
                       <a href="{{ route('movies.create')}}" class="btn btn-primary">Aggiungi Film</a>
+
+                      <h3>Lista Attori</h3>
+                      <table class="table mb-5">
+                        <thead>
+                          <tr class="text-center">
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Surname</th>
+                            <th scope="col">Manage</th>
+                          </tr>
+                        </thead>
+                        @foreach ($actors as $actor)
+                        <tbody class="table-group-divider">
+                            <tr>
+                              <th scope="row">{{$actor->id}}</th>
+                              <td>{{$actor->name}}</td>
+                              <td>{{Str::limit($actor->surname, 10)}}</td>
+                               <td class="text-center"><a href={{route("actors.edit", $actor->id)}} class="btn btn-primary">E</a>
+                                 <form action="{{ route('actors.destroy', $actor->id) }}" method="POST" class="delete-form d-inline-block destroy-btn">
+                                  @csrf()
+                                  @method('delete')
+                    
+                                  <button class="btn btn-danger ">
+                                    X
+                                  </button>
+                                </form> 
+                            </td>  
+                              
+                            </tr>
+                          </tbody>
+                        @endforeach
+                        <a href="{{route('actors.create')}}" class="btn btn-primary">Aggiungi attore</a>
+                      </table>
                     </div>
                 </div>
             </div>
