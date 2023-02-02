@@ -35,11 +35,11 @@
                               <td>{{Str::limit($movie->category, 10)}}</td>
                               <td>{{Str::limit($movie->release_date, 10)}}</td>
                               <td class="text-center"><a href={{route("movies.edit", $movie->id)}} class="btn btn-primary">E</a>
-                                 <form action="{{ route('movies.destroy', $movie->id) }}" method="POST" class="delete-form d-inline-block">
+                                 <form action="{{ route('movies.destroy', $movie->id) }}" method="POST" class="delete-form d-inline-block destroy-btn">
                                   @csrf()
                                   @method('delete')
                     
-                                  <button class="btn btn-danger destroy-btn">
+                                  <button class="btn btn-danger ">
                                     X
                                   </button>
                                 </form> 
@@ -55,33 +55,22 @@
             </div>
         </div>
     </div>
-    @endsection
-                        
-                      
-                        
-
-                      
-<<<<<<< HEAD
-=======
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 <script>
   const delete_btn_list = document.querySelectorAll(".destroy-btn");
   delete_btn_list.forEach((btn) => {
       btn.addEventListener("submit", function(e) {
+        console.log("click");
           e.preventDefault();
           const question = confirm(
-              "Cancellare l'elemento?");
+              "Cancellare il film?");
           if (question) {
               btn.submit();
+
           }
       })
   })
 </script>
 
 @endsection
->>>>>>> origin/main
+
