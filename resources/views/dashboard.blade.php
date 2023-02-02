@@ -15,6 +15,7 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+                    <a href="{{ route('movies.create')}}" class="btn btn-primary">Aggiungi film</a>
                 </div>
             </div>
         </div>
