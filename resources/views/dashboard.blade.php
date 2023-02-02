@@ -17,6 +17,7 @@
                     {{ __('You are logged in!') }}
                     <a href="{{ route('movies.index')}}" class="btn btn-primary">Vedi Films</a>
                     <a href="{{ route('movies.create')}}" class="btn btn-success">Inserisci nuovo film</a>
+                    <a href="{{ route('actors.create')}}" class="btn btn-primary">Inserisci nuovo attore</a>
                 </div>
             </div>
         </div>

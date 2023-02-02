@@ -16,7 +16,7 @@
 
                     {{ __('You are logged in!') }}
                     <br>
-                    <h3 class="mt-5">Lista Progetti</h3>
+                    <h3 class="mt-5">Lista Films</h3>
                     <table class="table mb-5">
                         <thead>
                           <tr class="text-center">
@@ -35,6 +35,7 @@
                               <td>{{Str::limit($movie->category, 10)}}</td>
                               <td>{{Str::limit($movie->release_date, 10)}}</td>
                               <td class="text-center"><a href={{route("movies.edit", $movie->id)}} class="btn btn-primary">E</a>
+                                <a href={{route("movies.show", $movie->id)}} class="btn btn-success">V</a>
                                  <form action="{{ route('movies.destroy', $movie->id) }}" method="POST" class="delete-form d-inline-block destroy-btn">
                                   @csrf()
                                   @method('delete')
@@ -51,7 +52,7 @@
                       </table>
                       <a href="{{ route('movies.create')}}" class="btn btn-primary">Aggiungi Film</a>
 
-                      <h3>Lista Attori</h3>
+                      <h3 class="my-5">Lista Attori</h3>
                       <table class="table mb-5">
                         <thead>
                           <tr class="text-center">
@@ -68,6 +69,7 @@
                               <td>{{$actor->name}}</td>
                               <td>{{Str::limit($actor->surname, 10)}}</td>
                                <td class="text-center"><a href={{route("actors.edit", $actor->id)}} class="btn btn-primary">E</a>
+                                <a href={{route("actors.show", $actor->id)}} class="btn btn-success">V</a>
                                  <form action="{{ route('actors.destroy', $actor->id) }}" method="POST" class="delete-form d-inline-block destroy-btn">
                                   @csrf()
                                   @method('delete')
@@ -81,8 +83,8 @@
                             </tr>
                           </tbody>
                         @endforeach
-                        <a href="{{route('actors.create')}}" class="btn btn-primary">Aggiungi attore</a>
-                      </table>
+                    </table>
+                    <a href="{{route('actors.create')}}" class="btn btn-primary">Aggiungi attore</a>
                     </div>
                 </div>
             </div>
