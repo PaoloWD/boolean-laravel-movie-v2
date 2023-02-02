@@ -50,14 +50,14 @@
                         @endforeach
                       </table>
                       <a href="{{ route('movies.create')}}" class="btn btn-primary">Aggiungi Film</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endsection
                         
                       
                         
 
                       
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-@endsection
