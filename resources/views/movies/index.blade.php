@@ -39,7 +39,7 @@
                                   @csrf()
                                   @method('delete')
                     
-                                  <button class="btn btn-danger">
+                                  <button class="btn btn-danger destroy-btn">
                                     X
                                   </button>
                                 </form> 
@@ -61,3 +61,27 @@
                         
 
                       
+<<<<<<< HEAD
+=======
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+  const delete_btn_list = document.querySelectorAll(".destroy-btn");
+  delete_btn_list.forEach((btn) => {
+      btn.addEventListener("submit", function(e) {
+          e.preventDefault();
+          const question = confirm(
+              "Cancellare l'elemento?");
+          if (question) {
+              btn.submit();
+          }
+      })
+  })
+</script>
+
+@endsection
+>>>>>>> origin/main
