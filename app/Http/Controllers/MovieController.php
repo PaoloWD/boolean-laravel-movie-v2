@@ -33,6 +33,13 @@ class MovieController extends Controller
         return view('movies.create');
     }
 
+    public function search(Request $request)
+{
+    $query = $request->get('category');
+    $movies = Movie::where('category', 'like', '%'.$query.'%')->get();
+    return view('movies.show', compact('movies'));
+}
+
     /**
      * Store a newly created resource in storage.
      *
@@ -43,7 +50,7 @@ class MovieController extends Controller
     {
         $data = $request->validated();
         $movie = Movie::create($data);
-        return redirect()->route('movies.show', $movie->id);
+        return redirect()->route('movies.index', $movie->id);
 
     }
 

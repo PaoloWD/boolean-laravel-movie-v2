@@ -17,6 +17,10 @@
                     {{ __('You are logged in!') }}
                     <br>
                     <h3 class="mt-5">Lista Films</h3>
+                    <form action="{{ route('movies.search') }}" method="GET">
+                      <input type="text" name="category" placeholder="Cerca per categoria">
+                      <button type="submit">Cerca</button>
+                  </form>
                     <table class="table mb-5">
                         <thead>
                           <tr class="text-center">
