@@ -14,7 +14,7 @@ class ProductionCompanyController extends Controller
      */
     public function index()
     {
-        //
+        return view('production_companies.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class ProductionCompanyController extends Controller
      */
     public function create()
     {
-        //
+        return view('production_companies.create');
     }
 
     /**
@@ -35,7 +35,12 @@ class ProductionCompanyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            //code;
+        ]);
+
+        $productionCompany = ProductionCompany::create($data);
+        return redirect()->route('production_companies.show', $productionCompany->id);
     }
 
     /**
@@ -46,7 +51,7 @@ class ProductionCompanyController extends Controller
      */
     public function show(ProductionCompany $productionCompany)
     {
-        //
+        return view('production_companies.show', compact('productionCompany'));
     }
 
     /**
@@ -57,7 +62,7 @@ class ProductionCompanyController extends Controller
      */
     public function edit(ProductionCompany $productionCompany)
     {
-        //
+        return view('production_companies.edit', compact('productionCompany'));
     }
 
     /**
@@ -69,7 +74,11 @@ class ProductionCompanyController extends Controller
      */
     public function update(Request $request, ProductionCompany $productionCompany)
     {
-        //
+        $data = $request->validate([
+            //code
+        ]);
+        $productionCompany->update($data);
+        return redirect()->route('production_companies.show', $productionCompany->id);
     }
 
     /**
@@ -80,6 +89,7 @@ class ProductionCompanyController extends Controller
      */
     public function destroy(ProductionCompany $productionCompany)
     {
-        //
+        $productionCompany->delete();
+        return redirect()->route('production_companies.index');
     }
 }

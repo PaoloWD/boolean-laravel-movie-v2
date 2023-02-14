@@ -16,7 +16,6 @@ class ActorController extends Controller
      */
     public function index()
     {
-        
     }
 
     /**
@@ -39,7 +38,7 @@ class ActorController extends Controller
     {
         $data = $request->validated();
         $actor = Actor::create($data);
-        return redirect()->route('movies.index', $actor->id);
+        return redirect()->route('movies.show', $actor->id);
     }
 
     /**
